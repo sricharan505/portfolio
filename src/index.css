@@ -1,13 +1,125 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg-color: rgba(9, 8, 15, 0.919);
+  --txt-color: rgba(233, 225, 225, 0.958);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Body */
+
+html,
+body {
+  background-color: var(--bg-color);
+  height:100vh;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
 }
+
+.custom_container{
+  color: var(--txt-color);
+}
+
+/* Navbar */
+
+.nav-css{
+  color: var(--txt-color);
+}
+
+#SvgjsG8514{
+  transition: 0.5s ease-in;
+}
+
+.hamburger{
+  height:40px;
+  width:40px;
+}
+
+.hline-1{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: 0.5s ease-in;
+}
+
+.hline-2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: 1s ease-in;
+}
+
+.hline-3{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: 0.5s ease-in;
+}
+
+.hamactive .hline-1{
+  border-color: black;
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.hamactive .hline-3{
+  border-color:black;
+  transform: rotate(45deg) translate(-9px, -6px);
+}
+
+.hamactive .hline-2 {
+  opacity:0;
+}
+
+
+.mobile_menu{
+  position:fixed;
+  background-color: antiquewhite;
+  color:black;
+  height:100%;
+  width:100%;
+  top:-100%;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  padding-top: 100px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  transition: 0.5s ease-in;
+}
+
+.mobile_menu div{
+  padding-bottom: 30px;
+}
+
+.activated{
+  top:0;
+}
+
+/* Homepage */
+
+#sricharan{
+  stroke-width:0.25mm;
+  fill:none;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 6s linear forwards;
+  transition: 5s linear;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+    
+  }
+}
+
+/* Skills */
+
+.skill_icon{
+  width:70px;
+  height:70px;
+}
+
