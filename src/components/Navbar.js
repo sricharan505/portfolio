@@ -1,23 +1,37 @@
 import {useState} from 'react';
-import { HiMenuAlt4 } from "react-icons/hi";
-const NavBar = () => {
-  const [hamclick,setHamclick] = useState(false);
+import { useGlobalContext } from './Context';
 
-  const menuclick = ()=>{
-    if(hamclick)
-    {
-      setHamclick(false);
-    }
-    else
-    {
-      setHamclick(true);
-    }
-  }
+
+const NavBar = () => {
+
+
+  const {
+    hamclick,
+    menuclick,
+    scrollitems,
+    homepageRef,
+    projectsRef,
+    skillsRef,
+    experienceRef,
+    contactRef,
+  } = useGlobalContext();
+
+  
     return (
       <>
-        <nav className="nav-css w-full p-1.5 sm:pl-6 sm:pr-6">
+        <nav className="fixed nav-css w-full p-1.5 sm:pl-6 sm:pr-6">
           <div className="flex items-center justify-between h-full">
-            <div className="items-center z-50">
+
+            <div
+              className="items-center z-50"
+              onClick={() => {
+                scrollitems(homepageRef);
+                if(hamclick)
+                {
+                  menuclick();
+                }
+              }}
+            >
               <svg width="70" height="70" viewBox="0 0 312.5 317.6250144464802">
                 <g
                   id="SvgjsG8513"
@@ -75,34 +89,87 @@ const NavBar = () => {
                 </g>
               </svg>
             </div>
+
             <div className="px-4 sm:hidden z-50" onClick={() => menuclick()}>
               <div className={hamclick ? "hamburger hamactive" : "hamburger"}>
-                
-                <hr
-                  className="hline-1"
-                ></hr>
-              
-                <hr
-                  className="hline-2"
-                ></hr>
-              
-                <hr
-                  className="hline-3"
-                ></hr>
-                
+                <hr className="hline-1"></hr>
+
+                <hr className="hline-2"></hr>
+
+                <hr className="hline-3"></hr>
               </div>
             </div>
+
             <div className={hamclick ? "mobile_menu activated" : "mobile_menu"}>
-              <div className="px-4">Skills</div>
-              <div className="px-4">Projects</div>
-              <div className="px-4">Experience</div>
-              <div className="px-4">Contact</div>
+              <button
+                onClick={() => {
+                  scrollitems(skillsRef);
+                  menuclick();
+                }}
+              >
+                <div className="px-4 w-full">Skills</div>
+              </button>
+
+              <button
+                onClick={() => {
+                  scrollitems(projectsRef);
+                  menuclick();
+                }}
+              >
+                <div className="px-4 w-full">Projects</div>
+              </button>
+
+              <button
+                onClick={() => {
+                  scrollitems(experienceRef);
+                  menuclick();
+                }}
+              >
+                <div className="px-4 w-full">Experience</div>
+              </button>
+
+              <button
+                onClick={() => {
+                  scrollitems(contactRef);
+                  menuclick();
+                }}
+              >
+                <div className="px-4 w-full">Contact</div>
+              </button>
             </div>
+
             <div className="hidden sm:flex sm:justify-evenly sm:items-center">
-              <div className="px-4">Skills</div>
-              <div className="px-4">Projects</div>
-              <div className="px-4">Experience</div>
-              <div className="px-4">Contact</div>
+              <button
+                onClick={() => {
+                  scrollitems(skillsRef);
+                }}
+              >
+                <div className="px-4 w-full">Skills</div>
+              </button>
+
+              <button
+                onClick={() => {
+                  scrollitems(projectsRef);
+                }}
+              >
+                <div className="px-4 w-full">Projects</div>
+              </button>
+
+              <button
+                onClick={() => {
+                  scrollitems(experienceRef);
+                }}
+              >
+                <div className="px-4 w-full">Experience</div>
+              </button>
+
+              <button
+                onClick={() => {
+                  scrollitems(contactRef);
+                }}
+              >
+                <div className="px-4 w-full">Contact</div>
+              </button>
             </div>
           </div>
         </nav>

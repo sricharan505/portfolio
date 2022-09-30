@@ -1,4 +1,5 @@
 import { FaNode } from "react-icons/fa";
+import { AiOutlineConsoleSql } from "react-icons/ai"
 import {
   SiHtml5,
   SiCss3,
@@ -7,7 +8,6 @@ import {
   SiJava,
   SiJavascript,
   SiDotnet,
-  SiMicrosoftsqlserver,
   SiMongodb,
   SiBootstrap,
 } from "react-icons/si";
@@ -72,7 +72,7 @@ const skills = [
   {
     id: 7,
     name: "SQL",
-    icon: <SiMicrosoftsqlserver className="skill_icon" />,
+    icon: <AiOutlineConsoleSql className="skill_icon" />,
     imgageUrl: "",
     learning: true,
   },

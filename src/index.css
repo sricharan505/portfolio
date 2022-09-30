@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 :root{
-  --bg-color: rgba(9, 8, 15, 0.919);
+
+  /* body */
+  --bg-color: rgba(9, 8, 15, 1);
   --txt-color: rgba(233, 225, 225, 0.958);
+
+  /* svg colors */
+  --fill-color: #c4770a;
+  --stroke-color: #c4770a;
 }
 
 /* Body */
@@ -19,14 +25,30 @@ body {
   margin: 0 0 0 0;
 }
 
+body{
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 .custom_container{
+  margin-top:82px;
   color: var(--txt-color);
 }
 
 /* Navbar */
 
 .nav-css{
+  top:0;
   color: var(--txt-color);
+  overflow: hidden;
+  background-color: var(--bg-color);
 }
 
 #SvgjsG8514{
@@ -101,20 +123,137 @@ body {
 /* Homepage */
 
 #sricharan{
+  stroke: var(--stroke-color);
   stroke-width:0.25mm;
-  fill:none;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 6s linear forwards;
-  transition: 5s linear;
+  animation: dash 4s cubic-bezier(1, 0.2, 0.17, 1.00) forwards;
 }
 
 @keyframes dash {
-  to {
+  75% {
     stroke-dashoffset: 0;
     
   }
+
+  100%{
+    stroke-dashoffset: 0;
+    fill: var(--fill-color);
+  }
 }
+
+
+#vapour1{
+  animation: vapours 4s infinite;
+}
+
+#vapour2{
+  animation: vapours 7s infinite;
+}
+
+#vapour3{
+  animation: vapours 9s infinite;
+}
+
+@keyframes vapours {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+
+#head{
+  transform: rotateX(20deg);
+  animation: headlifting 7s;
+  transform-origin: center;
+}
+
+@keyframes headlifting{
+
+  0% {
+    transform: rotateX(20deg);
+  }
+
+  50%{
+    transform: rotateX(0deg);
+  }
+
+  100% {
+    transform: rotateX(20deg);
+  }
+}
+
+#arm{
+  animation: armmovement 5s linear;
+  transform-origin: 35% 90%;
+  /* transform: rotate(-150deg); */
+}
+
+@keyframes armmovement {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  15% {
+    transform: rotate(-100deg);
+  }
+
+  30% {
+    transform: rotate(-160deg);
+  }
+
+  50% {
+    transform: rotate(-110deg);
+  }
+
+  70% {
+    transform: rotate(-160deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+#hand{
+  animation: handmovement 5s linear;
+  transform-origin: 38% 53%;
+  /* transform: rotate(40deg); */
+}
+
+@keyframes handmovement {
+  0%{
+    transform: rotateZ(0deg);
+  }
+
+  20%{
+    transform: rotateZ(40deg);
+  }
+
+  80% {
+    transform: rotateZ(40deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+/* #Vector_8{
+  stroke:rgb(197, 48, 11);
+  stroke-width: 3px;
+  fill:rgb(14, 75, 108);
+} */
+
 
 /* Skills */
 
@@ -123,3 +262,99 @@ body {
   height:70px;
 }
 
+/* Projects */
+
+#imgbg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4%;
+
+  padding:2.5%;
+
+}
+
+#divheader {
+  width: 100%;
+  padding: 2%;
+  background-color: antiquewhite;
+  text-align: center;
+  color: black;
+}
+
+#divfooter {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2% 2%;
+  background-color: antiquewhite;
+  text-align: center;
+  color: black;
+}
+
+#bgdiv{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  align-content: center;
+  text-align: center;
+  color:rgb(242, 238, 238);
+  width:100%;
+  height:95%;
+  background-color: rgb(0, 0, 0);
+}
+
+#bgdiv img, #bgdiv div{
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+#bgdiv img{
+  height: 60vh;
+  width: 100vw;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#bgdiv div{
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+#desc span{
+  padding:2%;
+  background-color: rgba(31, 31, 31, 0.8);
+}
+
+#divfooter a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#divfooter svg{
+  padding: 5px;
+  height:40px;
+  width: 40px;
+}
+
+@media screen and (max-device-width: 480px) and (orientation: portrait){
+  #bgdiv img 
+  {
+    height: 60vh;
+    width: 100vw;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
+
+@media screen and (max-device-width: 940px) and (orientation: landscape){
+  #bgdiv img 
+  {
+    height: 140vh;
+    width: 100vw;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
