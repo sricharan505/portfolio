@@ -13,7 +13,7 @@ const projects = [
     id: 2,
     name: "My Portfolio",
     media: [require("../media/portfolio.png")],
-    description: "Built my portfolio using React and TailwindcssS, which you are currently on.",
+    description: "Built my portfolio using React and Tailwindcss, which you are currently on.",
     url: "https://sricharan.netlify.app/",
     github: "https://github.com/sricharan505/portfolio",
   },

@@ -49,6 +49,7 @@ body::-webkit-scrollbar {
   color: var(--txt-color);
   overflow: hidden;
   background-color: var(--bg-color);
+  z-index: 100;
 }
 
 #SvgjsG8514{
@@ -265,6 +266,7 @@ body::-webkit-scrollbar {
 /* Projects */
 
 #imgbg {
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -315,7 +317,7 @@ body::-webkit-scrollbar {
   height: 60vh;
   width: 100vw;
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 4;
 }
 
 #bgdiv div{
@@ -357,4 +359,123 @@ body::-webkit-scrollbar {
     grid-column-start: 1;
     grid-column-end: 4;
   }
+}
+
+/* Experience */
+
+.positionlines {
+  list-style: none;
+}
+
+.positionlines li {
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.positionlines li:before {
+  content: '\25CF';
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.positionlines li:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: '';
+  border-left: 2px solid rgb(215, 212, 212);
+  margin-left: 5px;
+  height: 80%;
+}
+
+.positionlines li:first-of-type:after {
+  top: 50%;
+}
+
+.positionlines li:last-of-type:after {
+  top: -50%;
+}
+
+.desc{
+  list-style: url('./media/done.svg')
+}
+
+.partial-border{
+  border-width: 1px;
+  border-top: 50%;
+}
+
+/* Contact */
+
+.vert_hr{
+  height: 350px;
+  width: 3px;
+  border-width: 0;
+  background-color: rgb(115, 115, 132);
+}
+
+.contacts_icon{
+  width: 40px;
+  height: 40px;
+}
+
+.contacts_center{
+  
+}
+
+.contact_form{
+  border-right: 1px solid;
+}
+
+.sentsvg{
+  height:100px;
+  width:100px;
+}
+
+.sent #tick{
+  stroke: var(--stroke-color);
+  fill:var(--bg-color);
+  stroke-width: .5mm;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: ticking 4s linear forwards;
+}
+
+
+@keyframes ticking {
+  75% {
+    stroke-dashoffset: 0;
+    
+  }
+  
+  100% {
+    stroke-dashoffset: 0;
+    fill: var(--fill-color);
+  }
+}
+
+.sent #circle {
+  fill:var(--bg-color);
+  stroke-width: .5mm;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: filling 4s linear forwards;
+}
+
+@keyframes filling {
+
+  75% {
+      stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill: antiquewhite;
+  }
+}
+
+#tq_msg{
+  padding-left: 10px;
+  
 }

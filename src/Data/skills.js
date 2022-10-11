@@ -9,7 +9,7 @@ import {
   SiJavascript,
   SiDotnet,
   SiMongodb,
-  SiBootstrap,
+  // SiBootstrap,
 } from "react-icons/si";
 
 const skills = [
@@ -83,13 +83,13 @@ const skills = [
     imgageUrl: "",
     learning: false,
   },
-  {
-    id: 9,
-    name: "Bootstrap",
-    icon: <SiBootstrap className="skill_icon" />,
-    imgageUrl: "",
-    learning: false,
-  },
+  // {
+  //   id: 9,
+  //   name: "Bootstrap",
+  //   icon: <SiBootstrap className="skill_icon" />,
+  //   imgageUrl: "",
+  //   learning: false,
+  // },
 ];
 
 export default skills;

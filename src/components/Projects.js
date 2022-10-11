@@ -14,13 +14,6 @@ const Project = () => {
       >
         <span className="text-5xl text-center pb-10">PROJECTS</span>
 
-        {/* <ImageBackground
-          image={require('../media/TypingPractice.png')}
-          heading="Practice Typing"
-          description="Created a simple react application for users to improve their typing skill by practicing on this app."
-          github="https://github.com/sricharan505/Practice-typing"
-          url="https://practice-fast-typing.netlify.app/"
-        ></ImageBackground> */}
 
         <div className="grid grid-cols-1 gap-4 justify-items-center p-2 lg:grid-cols-2 ">
           {projects.map((project) => {
