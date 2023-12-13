@@ -263,6 +263,20 @@ body::-webkit-scrollbar {
   height:70px;
 }
 
+.sticky-element {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.normal-element {
+  
+}
+
+.rotate-y-1 {
+  transform: rotateY(30deg);
+}
+
 /* Projects */
 
 #imgbg {
