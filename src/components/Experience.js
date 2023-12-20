@@ -6,7 +6,7 @@ const Experience = () => {
 
   const { experienceRef } = useGlobalContext();
 
-  const [selJob, setSelJob] = useState(0);
+  const [selJob, setSelJob] = useState(1);
 
   //console.log(experiences[selJob]);
   const miltoyear = (milsec) => {
@@ -28,24 +28,7 @@ const Experience = () => {
 
       <br></br>
       <div className="grid grid-cols-3 px-1 py-3 border">
-        {experiences.length > 1 && (
-          <div className="flex flex-col pt-5 pr-5">
-            {experiences.map((exp) => {
-              return (
-                <button
-                  key={exp.id}
-                  className="p-2 button-64 m-1"
-                  onClick={() => {
-                    setSelJob(exp.id);
-                  }}
-                >
-                  <span className="text-lg">{exp.s_company}</span>
-                </button>
-              );
-            })}
-          </div>
-        )}
-
+        
         <div className={experiences.length > 1 ? "col-span-3 pl-5" : "col-span-3 pl-10"}>
           <span className="text-xl">{experiences[selJob].company}</span>
           <br></br>
@@ -53,7 +36,7 @@ const Experience = () => {
             {miltoyear(Date.now() - Date.parse(experiences[selJob].startdate))}
           </span>
 
-          <ul className="positionlines ml-5">
+          <ul className={experiences[selJob].positions.length <= 1 ? "singleitemlist ml-5" : "positionlines ml-5"}>
             {experiences[selJob].positions.map((pos, index) => {
               return (
                 <li key={index}>
@@ -72,6 +55,7 @@ const Experience = () => {
             </ul>
           </div>
         </div>
+
       </div>
     </div>
   );

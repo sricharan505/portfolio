@@ -377,6 +377,20 @@ body::-webkit-scrollbar {
 
 /* Experience */
 
+.singleitemlist {
+  list-style: none;
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  /* margin-left: 2.4rem; */
+}
+
+.singleitemlist li:before {
+  content: '\25CF';
+  margin-right: 10px;
+  font-size: 20px;
+}
+
 .positionlines {
   list-style: none;
 }
