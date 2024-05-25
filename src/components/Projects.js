@@ -12,7 +12,7 @@ const Project = () => {
         ref={projectsRef}
         className="container mx-auto py-8 flex flex-col justify-center"
       >
-        <span className="text-5xl text-center pb-10">PROJECTS</span>
+        <span className="text-5xl text-center pb-10">Personal PROJECTS</span>
 
 
         <div className="grid grid-cols-1 gap-4 justify-items-center p-2 lg:grid-cols-2 ">

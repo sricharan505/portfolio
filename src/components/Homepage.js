@@ -33,8 +33,7 @@ const HomePage = () => {
           <b className="text-lg leading-relaxed" style={{ color: "#0dd4db" }}>
             Full Stack Web Developer
           </b>{" "}
-          focused on building Solutions. Currently seeking a challenging role
-          where I can put my skills at work.
+          focused on building Solutions.
         </span>
       </div>
 

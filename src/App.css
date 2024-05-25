@@ -1,0 +1,65 @@
+
+
+.p-tabview-nav{
+    background-color: black;
+    color: rgb(95, 95, 93);
+}
+
+.p-tabview-nav-link{
+    background-color: black;
+}
+
+.p-tabview-selected {
+    color: white;
+    border-bottom: 4px solid white;
+}
+
+.p-tabview-nav-container{
+    border-bottom: 2px solid rgb(95, 95, 93);
+}
+
+.p-tabview-panels{
+    background-color: black;
+    color: white;
+}
+
+/* .exp-point-list{
+    margin-left: 20px;
+    margin-top:10px;
+} */
+
+.exp-point-list li { 
+    list-style-image: none; 
+
+} 
+
+.exp-point-list li {
+    margin: 0;
+	padding: 10px 0 10px 50px;
+	list-style: none;
+    background-image: url("../public/media/rocket-svg-ul.svg");
+    background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 30px;
+}
+
+::-webkit-scrollbar {
+width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px rgb(247, 246, 246); 
+border-radius: 10px;
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: red; 
+border-radius: 10px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #b30000; 
+}

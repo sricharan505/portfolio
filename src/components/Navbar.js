@@ -110,14 +110,14 @@ const NavBar = () => {
                 <div className="px-4 w-full">Skills</div>
               </button>
 
-              <button
+              {/* <button
                 onClick={() => {
                   scrollitems(projectsRef);
                   menuclick();
                 }}
               >
                 <div className="px-4 w-full">Projects</div>
-              </button>
+              </button> */}
 
               <button
                 onClick={() => {
@@ -147,13 +147,13 @@ const NavBar = () => {
                 <div className="px-4 w-full">Skills</div>
               </button>
 
-              <button
+              {/* <button
                 onClick={() => {
                   scrollitems(projectsRef);
                 }}
               >
                 <div className="px-4 w-full">Projects</div>
-              </button>
+              </button> */}
 
               <button
                 onClick={() => {

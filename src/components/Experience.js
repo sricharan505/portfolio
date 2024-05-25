@@ -1,4 +1,5 @@
 import { useGlobalContext } from "./Context";
+import { TabView, TabPanel } from 'primereact/tabview';
 import experiences from "../Data/experience";
 import { useState } from "react";
 
@@ -18,6 +19,10 @@ const Experience = () => {
     } `;
   }
 
+  experiences.map((exp)=>{
+    console.log(miltoyear((exp.end_date ? Date.parse(exp.end_date) : Date.now()) - Date.parse(exp.start_date)))
+  })
+
   return (
     <div
       ref={experienceRef}
@@ -27,36 +32,71 @@ const Experience = () => {
       <span className="text-5xl text-center pb-10 w-full">Experience</span>
 
       <br></br>
-      <div className="grid grid-cols-3 px-1 py-3 border">
-        
-        <div className={experiences.length > 1 ? "col-span-3 pl-5" : "col-span-3 pl-10"}>
-          <span className="text-xl">{experiences[selJob].company}</span>
-          <br></br>
-          <span className="text-sm">
-            {miltoyear(Date.now() - Date.parse(experiences[selJob].startdate))}
-          </span>
 
-          <ul className={experiences[selJob].positions.length <= 1 ? "singleitemlist ml-5" : "positionlines ml-5"}>
-            {experiences[selJob].positions.map((pos, index) => {
-              return (
-                <li key={index}>
-                  <span className="text-lg">{pos.designation}</span>
+      <TabView>
+        {
+          experiences.map((exp)=>{
+            return(
+              <TabPanel header={exp.s_company}>
+                <div className={experiences.length > 1 ? "col-span-3 pl-5" : "col-span-3 pl-10"}>
+                  <span className="text-xl font-bold">{exp.company}</span>
                   <br></br>
-                  <span className="pl-7 text-sm">{pos.period}</span>
-                </li>
-              );
-            })}
-          </ul>
-          <div>
-            <ul className="desc ml-9">
-              {experiences[selJob].description.map((des, index) => (
-                <li key={index}>{des}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-      </div>
+                  <span className="text-sm">
+                    {miltoyear((exp.end_date ? Date.parse(exp.end_date) : Date.now()) - Date.parse(exp.start_date))}
+                  </span>
+    
+                  <ul className={exp.positions.length <= 1 ? "singleitemlist ml-5" : "positionlines ml-5"}>
+                    {
+                      exp.positions.map((pos, index) => {
+                        return (
+                          <li key={index}>
+                            <span className="text-lg">{pos.designation}</span>
+                            <br></br>
+                            <span className="pl-7 text-sm">{pos.period}</span>
+                          </li>
+                        );
+                      })
+                    }
+                  </ul>
+                  <div>
+                    <span className="font-bold block mb-4">Summary :</span>
+                    
+                    <div className="h-[40vh] overflow-auto border-t-[1px]">
+                      {
+                        exp['description'].map((desc)=>{
+                          return(
+                            <div className="ml-6 mt-4 pb-4 border-b-2 border-dotted">
+                              <span><span className="font-bold">Project :</span> {desc['subheading']}</span>
+                              <ul className="exp-point-list">
+                                {
+                                  desc['points'].map((point)=>{
+                                    return (
+                                      <li>{point}</li>
+                                    )
+                                  })
+                                }
+                              </ul>
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div>
+                  <div>
+                    <ul className="desc ml-9">
+                      {/* {experiences[selJob].description.map((des, index) => (
+                        <li key={index}>{des}</li>
+                      ))} */}
+                    </ul>
+                  </div>
+                </div>
+              </TabPanel>
+            )
+          })
+        }
+        
+      </TabView>
+      
     </div>
   );
 };

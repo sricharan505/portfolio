@@ -45,10 +45,6 @@ const Contact = () => {
     }
   };
 
-  // console.log(
-  //   /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-  // );
-
   useEffect(()=>{
     if(errormsg==="")
     {
@@ -68,7 +64,7 @@ const Contact = () => {
       >
         <div className="text-5xl text-center pb-10">Contact</div>
         {/* grid grid-cols-1 sm:grid-cols-3 sm:auto-cols-max */}
-        <div className="sm:flex justify-center justify-items-center">
+        <div className="flex flex-col sm:flex-row justify-center items-center justify-items-center">
           <div className="sm:w-96 max-w-md p-3">
             {sent ? (
               <div className="w-full h-full flex justify-center justify-items-center items-center ">
@@ -131,13 +127,16 @@ const Contact = () => {
                 <br></br>
                 <br></br>
 
-                <button
-                  type="submit"
-                  onClick={submitForm}
-                  className="border rounded-md px-5 py-2 "
-                >
-                  Send
-                </button>
+                <div className="flex w-full justify-center">
+                  <button
+                    type="submit"
+                    onClick={submitForm}
+                    className="border rounded-md px-5 py-2 "
+                  >
+                    Send
+                  </button>
+                </div>
+
                 <br></br>
                 {errormsg ? <label className="text-red-700">{errormsg}</label> : <br></br>}
               </form>
@@ -146,19 +145,16 @@ const Contact = () => {
 
           {/* <div className="w-0.5 border contacts_center"></div> */}
 
-          <div className="hidden px-8 py-8 sm:flex">
+          <div className="hidden px-8 py-8 sm:flex justify-center items-center">
             <hr className="vert_hr" />
           </div>
 
-          <div className="max-w-sm flex flex-col justify-center justify-items-center content-center ">
+          <div className="max-w-sm flex  flex-row sm:flex-col justify-center justify-items-center content-center ">
             {contacts.map((contact) => {
               return (
                 <button key={contact.id} className="p-1 m-1">
                   <a href={contact.link} target="_blank" rel="noreferrer">
                     <span className="flex justify-center justify-items-center ">
-                      <span className="flex items-center content-center pr-2">
-                        {contact.name}
-                      </span>
                       {contact.icon}
                     </span>
                   </a>
